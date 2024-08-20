@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Manga Book",
+  "version": "1.0",
+  "description": "Find out the chapter you stopped at and the website you were reading on.",
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  },
+  "permissions": [
+    "tabs",
+    "storage",
+    "activeTab",
+    "contextMenus"
+  ],
+  "background": {
+    "service_worker": "engine.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}

@@ -29,16 +29,7 @@ MangaBook é uma extensão de navegador que ajuda você a acompanhar a leitura d
 
 2. **Verificar sua Lista**: Veja a lista dos mangás que você está acompanhando diretamente na interface da extensão.
 
-3. **Limpar Armazenamento**: Clique com o botão direito em qualquer página, selecione "Limpar localStorage do Plugin" no menu de contexto para limpar os dados armazenados.
-
 ## Contribuição
 
 Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests para melhorar o MangaBook.
 
-## Licença
-
-Este projeto é licenciado sob a [MIT License](LICENSE).
-
-## Contato
-
-Para dúvidas ou sugestões, entre em contato pelo email: [seu-email@example.com](mailto:seu-email@example.com).

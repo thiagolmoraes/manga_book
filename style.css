@@ -113,3 +113,8 @@ header h1 {
 .read-btn:hover {
     background-color: #ff5252;
 }
+
+.date-info {
+    font-size: 0.8em;
+    color: #777;
+}

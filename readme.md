@@ -9,10 +9,10 @@ MangaBook é uma extensão de navegador que ajuda você a acompanhar a leitura d
 
 ## Images
 
-![Interface principal](assets/manga_layout.png)
+![Interface principal](assets/manga_layout.png) <br>
 *Interface principal do MangaBook*
 
-![Lista de mangás](assets/manga_layout_2.png)
+![Lista de mangás](assets/manga_layout_2.png) <br>
 *Lista de mangás salvos*
 
 ## Instalação

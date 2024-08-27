@@ -69,7 +69,7 @@ function addMangaToDOM(manga, index) {
         <div class="manga-info">
             <h3>${manga.title}</h3>
             <p class="chapter-info">Capítulo: ${manga.chapter}</p>
-            <p class="date-info">Lido em: ${manga.lastReadDate}</p>
+            <p class="date-info" style="display: ${manga.lastReadDate ? 'block' : 'none'};">Lido em: ${manga.lastReadDate || ''}</p>
         </div>
         <button class="read-btn">Lido</button>
     `;
@@ -79,20 +79,21 @@ function addMangaToDOM(manga, index) {
     });
 
     mangaList.appendChild(mangaCard);
-}
-
-function markAsRead(index) {
+}function markAsRead(index) {
     const mangas = JSON.parse(localStorage.getItem('mangas')) || [];
     const manga = mangas[index];
 
     if (manga) {
         manga.chapter += 1;
         manga.lastReadDate = formataData();
-        
+
         localStorage.setItem('mangas', JSON.stringify(mangas));
 
         const mangaCard = document.querySelector(`.manga-card[data-id="${index}"]`);
         mangaCard.querySelector('.chapter-info').textContent = `Capítulo: ${manga.chapter}`;
-        mangaCard.querySelector('.date-info').textContent = `Lido em: ${formataData()}`;
+        
+        const dateInfo = mangaCard.querySelector('.date-info');
+        dateInfo.textContent = `Lido em: ${manga.lastReadDate}`;
+        dateInfo.style.display = 'block';
     }
 }

@@ -1,11 +1,8 @@
 # MangaBook
 
-MangaBook é uma extensão de navegador que ajuda você a acompanhar a leitura dos seus mangás favoritos. Com o MangaBook, você pode facilmente salvar o capítulo onde parou e continuar sua leitura de onde deixou, sem nunca mais perder o fio da história.
+MangaBook é uma extensão de navegador que ajuda você a acompanhar a leitura dos seus mangás favoritos, você pode facilmente salvar o capítulo onde parou e continuar sua leitura de onde deixou, sem esquecer o que já leu. 
 
-## Funcionalidades
-
-- **Salvar Capítulo Atual**: Salve o capítulo atual do mangá que você está lendo diretamente no seu navegador.
-- **Lista de Mangás**: Mantenha uma lista dos mangás que você está acompanhando, incluindo o título e o capítulo atual.
+Sabe aquele hiato que você da nas suas leituras e depois não sabe onde parou? Chega disso! 
 
 ## Images
 
@@ -31,16 +28,11 @@ MangaBook é uma extensão de navegador que ajuda você a acompanhar a leitura d
 
 5. A extensão MangaBook agora está instalada e pronta para uso!
 
-## Uso
-
-1. **Adicionar Mangá**: Abra a extensão clicando no ícone do MangaBook na barra de ferramentas do navegador. Insira o título do mangá e o capítulo atual, e clique em "Salvar".
-
-2. **Verificar sua Lista**: Veja a lista dos mangás que você está acompanhando diretamente na interface da extensão.
 
 ## Atenção
 
-Os dados ainda estão sendo armazenados em Local Storage! 
-
+Os dados ainda estão sendo armazenados em Local Storage. Breve será implementado uma persistencia de dados! Até lá, não limpe o Local Storage...
+ 
 ## Contribuição
 
 Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests para melhorar o MangaBook.

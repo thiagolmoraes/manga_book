@@ -10,7 +10,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     document.querySelector('.add-manga-btn').addEventListener('click', addManga);
+    document.querySelector('.edit-manga-btn').addEventListener('click', () => {
+        if (selectedManga !== null) {
+            editManga();
+        } else {
+            alert('Por favor, selecione um mangá para editar');
+        }
+    });
+    
 });
+
+let isSelectionMode = false;
+let selectedManga = null;
 
 function displayNoMangasMessage() {
     const mangaList = document.querySelector('.manga-list');
@@ -27,35 +38,45 @@ function removeNoMangasMessage() {
     }
 }
 
-
-function formataData(){
+function formataData() {
     const data = new Date();
-    return data.getDate()+"/"+(data.getMonth()+1)+"/"+data.getFullYear()
- }
+    return data.getDate()+"/"+(data.getMonth()+1)+"/"+data.getFullYear();
+}
 
 function addManga() {
     const title = prompt("Digite o título do mangá:");
     const chapter = prompt("Digite o capítulo atual:");
+    const url = prompt("Digite a URL do mangá:");
 
     if (chapter === null || isNaN(chapter) || chapter.trim() === '') {
         alert("O capítulo deve ser um número.");
         return;
     }
 
-    if (title && chapter) {
-        const manga = {
-            title: title,
-            chapter: parseInt(chapter, 10),
-            LastReadDate: formataData()            
-        };
-
-        const mangas = JSON.parse(localStorage.getItem('mangas')) || [];
-        mangas.push(manga);
-        localStorage.setItem('mangas', JSON.stringify(mangas));
-
-        removeNoMangasMessage(); 
-        addMangaToDOM(manga, mangas.length - 1);
+    if (url === null || url.trim() === '') {
+        alert("A URL não pode estar vazia.");
+        return;
     }
+
+    if (title == null || title.trim() === '') {
+        alert("O título não pode estar vazio.");
+        return;
+    }
+
+    const manga = {
+        title: title,
+        chapter: parseInt(chapter, 10),
+        lastReadDate: '',
+        url:url || ''
+    };
+
+    const mangas = JSON.parse(localStorage.getItem('mangas')) || [];
+    mangas.push(manga);
+    localStorage.setItem('mangas', JSON.stringify(mangas));
+
+    removeNoMangasMessage(); 
+    addMangaToDOM(manga, mangas.length - 1);
+   
 }
 
 function addMangaToDOM(manga, index) {
@@ -65,9 +86,10 @@ function addMangaToDOM(manga, index) {
     mangaCard.classList.add('manga-card');
     mangaCard.setAttribute('data-id', index); 
 
+
     mangaCard.innerHTML = `
         <div class="manga-info">
-            <h3>${manga.title}</h3>
+            <h3>${manga.url ? `<a href="${manga.url}" target="_blank">${manga.title}</a>` : manga.title}</h3>
             <p class="chapter-info">Capítulo: ${manga.chapter}</p>
             <p class="date-info" style="display: ${manga.lastReadDate ? 'block' : 'none'};">Lido em: ${manga.lastReadDate || ''}</p>
         </div>
@@ -78,8 +100,19 @@ function addMangaToDOM(manga, index) {
         markAsRead(index);
     });
 
+    mangaCard.addEventListener('click', () => {
+        document.querySelectorAll('.manga-card').forEach(card => {
+            card.classList.remove('selected');
+        });
+        
+        mangaCard.classList.add('selected');
+        selectedManga = index;
+    });
+
     mangaList.appendChild(mangaCard);
-}function markAsRead(index) {
+}
+
+function markAsRead(index) {
     const mangas = JSON.parse(localStorage.getItem('mangas')) || [];
     const manga = mangas[index];
 
@@ -95,5 +128,40 @@ function addMangaToDOM(manga, index) {
         const dateInfo = mangaCard.querySelector('.date-info');
         dateInfo.textContent = `Lido em: ${manga.lastReadDate}`;
         dateInfo.style.display = 'block';
+    }
+}
+
+function editManga() {
+    if (selectedManga !== null) {
+        const mangas = JSON.parse(localStorage.getItem('mangas')) || [];
+        const manga = mangas[selectedManga];
+
+        const newTitle = prompt("Digite o novo título do mangá:", manga.title);
+        const newChapter = prompt("Digite o novo capítulo atual:", manga.chapter);
+        const url = prompt("Digite a nova URL do mangá:", manga.url);
+
+        if (newTitle && newChapter && !isNaN(newChapter)) {
+            manga.title = newTitle;
+            manga.chapter = parseInt(newChapter, 10);
+            manga.url = url;
+
+            localStorage.setItem('mangas', JSON.stringify(mangas));
+
+            const mangaList = document.querySelector('.manga-list');
+            mangaList.innerHTML = '';
+            mangas.forEach((manga, index) => {
+                addMangaToDOM(manga, index);
+            });
+
+            selectedManga = null;
+            isSelectionMode = false;
+            document.querySelectorAll('.manga-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+        } else {
+            alert("Entrada inválida. O mangá não foi editado.");
+        }
+    } else {
+        alert('Por favor, selecione um mangá para editar');
     }
 }

@@ -46,7 +46,7 @@ function addManga() {
         const manga = {
             title: title,
             chapter: parseInt(chapter, 10),
-            LasReadDate: formataData()            
+            LastReadDate: formataData()            
         };
 
         const mangas = JSON.parse(localStorage.getItem('mangas')) || [];
@@ -69,8 +69,7 @@ function addMangaToDOM(manga, index) {
         <div class="manga-info">
             <h3>${manga.title}</h3>
             <p class="chapter-info">Capítulo: ${manga.chapter}</p>
-            <p class="date-info">Lido em: ${manga.lastReadDate ? manga.lastReadDate : ''}</p>
-
+            <p class="date-info">Lido em: ${manga.lastReadDate}</p>
         </div>
         <button class="read-btn">Lido</button>
     `;
@@ -88,7 +87,8 @@ function markAsRead(index) {
 
     if (manga) {
         manga.chapter += 1;
-
+        manga.lastReadDate = formataData();
+        
         localStorage.setItem('mangas', JSON.stringify(mangas));
 
         const mangaCard = document.querySelector(`.manga-card[data-id="${index}"]`);

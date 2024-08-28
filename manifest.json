@@ -4,7 +4,7 @@
   "version": "1.0",
   "description": "Find out the chapter you stopped at and the website you were reading on.",
   "action": {
-    "default_popup": "index.html",
+    "default_popup": "src/index.html",
     "default_icon": {
       "16": "icon/icon16.png",
       "48": "icon/icon48.png",
@@ -18,12 +18,12 @@
     "contextMenus"
   ],
   "background": {
-    "service_worker": "engine.js"
+    "service_worker": "src/js/engine.js"
   },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["content.js"]
+      "js": ["src/js/content.js"]
     }
   ]
 }

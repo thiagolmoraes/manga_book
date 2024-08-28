@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Lista de Mangás</title>
+    <link rel="stylesheet" href="css/add.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Adicionar um Manga</h1>
+        <div class="config-buttons">
+            <button class="return-btn">
+                <i class="fa-solid fa-house"></i> 
+            </button>
+        </div>
+    </header>
+    
+    <main class="manga-form">
+        <form id="add-manga-form">
+            <div class="form-group">
+                <label for="title">Título:</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="chapters">Número de Capítulos:</label>
+                <input type="number" id="chapters" name="chapters" min="0" required>
+            </div>
+            <div class="form-group">
+                <label for="url">URL Mangá:</label>
+                <input type="url" id="url" name="url" required>
+            </div>
+            <div class="form-group">
+                <label for="status">Status:</label>
+                <select id="status" name="status" required>
+                    <option value="pretendo">Pretendo Ler</option>
+                    <option value="lendo">Lendo</option>
+                    <option value="concluido">Concluído</option>
+                    <option value="dropado">Dropado</option>
+                    <option value="hiato">Hiato</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit">Salvar Manga</button>
+            </div>
+        </form>
+    </main>
+
+    <script src="js/add.js"></script>
+</body>
+</html>

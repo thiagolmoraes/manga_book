@@ -6,11 +6,18 @@ Sabe aquele hiato que você da nas suas leituras e depois não sabe onde parou? 
 
 ## Images
 
-![Interface principal](assets/manga_layout.png) <br>
-*Interface principal do MangaBook*
+![Novo Mangá](assets/form_add.png) <br>
+*Interface para adicionar um manga do MangaBook*
 
-![Lista de mangás](assets/manga_layout_2.png) <br>
-*Lista de mangás salvos*
+![Editar Mangá](assets/form_edit.png) <br>
+*Interface para editar um manga do MangaBook*
+
+
+![Lista de mangás](assets/lista.png) <br>
+*Lista de mangás cadastrados no MangaBook*
+
+![Tela de configuração](assets/configs.png) <br>
+*Tela de configuração do MangaBook*
 
 ## Instalação
 

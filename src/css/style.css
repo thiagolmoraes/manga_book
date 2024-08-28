@@ -27,6 +27,33 @@ header h1 {
     color: #444;
 }
 
+.manga-actions{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.manga-actions i {
+    font-size: 14px;
+  }
+  
+.manga-actions button {
+    padding: 6px 8px;
+    border: none;
+    width: 30px;
+    height: 30px;
+    font-size: 1.2em;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.manga-actions button:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
 .config-btn {
     display: flex;
     justify-content: space-between;
@@ -34,7 +61,9 @@ header h1 {
     margin-bottom: 15px;
 }
 .add-manga-btn,
-.edit-manga-btn {
+.edit-manga-btn,
+.conf-manga-btn
+ {
     border: none;
     width: 30px;
     height: 30px;
@@ -49,14 +78,16 @@ header h1 {
 }
 
 .add-manga-btn:hover,
-.edit-manga-btn:hover {
+.edit-manga-btn:hover,
+.conf-manga-btn:hover
+{
     background-color: #f0f0f0;
     transform: scale(1.1);
     cursor: pointer;
-    }
+}
 
 .manga-card.selected {
-    border: 2px solid #ff6b6b;
+    border: 2px solid #ff6b6b;  
     background-color: #fff0f0;
     box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
 }
@@ -73,8 +104,8 @@ header h1 {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 10px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 }
 
 .manga-card img {
@@ -88,6 +119,27 @@ header h1 {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    min-width: 0;
+}
+
+.manga-info > * {
+    margin-bottom: 8px;
+}
+
+.manga-info > *:last-child {
+    margin-bottom: 0;
+}
+
+.manga-info h3 {
+    font-size: clamp(14px, 2vw, 18px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.manga-actions {
+    flex-shrink: 0;
 }
 
 .manga-card h3 {
@@ -109,35 +161,6 @@ header h1 {
 .manga-card p {
     font-size: 0.9em;
     color: #777;
-}
-
-.progress-bar {
-    width: 100%;
-    background-color: #e0e0e0;
-    border-radius: 5px;
-    margin-top: 5px;
-    height: 5px;
-    overflow: hidden;
-}
-
-.progress {
-    height: 100%;
-    background-color: #ff6b6b;
-    border-radius: 5px;
-}
-
-.read-btn {
-    background-color: #ff6b6b;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    font-size: 0.9em;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.read-btn:hover {
-    background-color: #ff5252;
 }
 
 .date-info {

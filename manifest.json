@@ -3,6 +3,11 @@
   "name": "Manga Book",
   "version": "1.0",
   "description": "Find out the chapter you stopped at and the website you were reading on.",
+  "icons": {
+    "16": "icon/icon16.png",
+    "48": "icon/icon48.png",
+    "128": "icon/icon128.png"
+  },
   "action": {
     "default_popup": "src/index.html",
     "default_icon": {

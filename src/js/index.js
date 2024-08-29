@@ -141,6 +141,12 @@ function loadMangaList(manga, index) {
         </div>
     `;
 
+    if (manga.lastReadDate) {
+        const readBtn = mangaCard.querySelector('.read-btn i');
+        readBtn.classList.remove('fa-regular');
+        readBtn.classList.add('fa-solid');
+    }
+
     mangaCard.querySelector('.read-btn').addEventListener('click', () => {
         markAsRead(index);
     });

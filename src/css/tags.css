@@ -80,4 +80,10 @@
     border-color: transparent #FF4136 transparent transparent;
 }
 
-
+.tags.cansei {
+    background: #cf0fa6;
+    width: 60px;
+}
+.tags.cansei:before {
+    border-color: transparent #cf0fa6 transparent transparent;
+}

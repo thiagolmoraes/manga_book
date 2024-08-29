@@ -86,11 +86,6 @@ header h1 {
     cursor: pointer;
 }
 
-.manga-card.selected {
-    border: 2px solid #ff6b6b;  
-    background-color: #fff0f0;
-    box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
-}
 
 .manga-list {
     display: flex;
@@ -167,3 +162,100 @@ header h1 {
     font-size: 0.8em;
     color: #777;
 }
+
+.search-container {
+    margin: 20px 0;
+    transform: scale(0.8); 
+    transform-origin: center top;
+    margin: 5px auto;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.search-container {
+    margin: 5px;
+    position: relative;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: 2px solid #3498db;
+    border-radius: 25px;
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+#searchInput:focus {
+    border-color: #2980b9;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+}
+
+#searchInput::placeholder {
+    color: #95a5a6;
+}
+
+.search-container::before {
+    content: '\f002';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    color: #3498db;
+    pointer-events: none;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px; /* Reduced from 10px */
+    margin: 15px 0;
+  }
+  
+  .tab-btn {
+    padding: 8px 15px; /* Reduced from 10px 20px */
+    border: none;
+    border-radius: 15px; /* Slightly reduced for a tighter look */
+    background-color: #f0f0f0;
+    color: #333;
+    font-size: 13px; /* Slightly reduced font size */
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .tab-btn:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .tab-btn.active {
+    background-color: #3498db;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  /* Dark theme support */
+  [data-theme="dark"] .tab-btn {
+    background-color: #2a2a2a;
+    color: #f0f0f0;
+  }
+  
+  [data-theme="dark"] .tab-btn:hover {
+    background-color: #3a3a3a;
+  }
+  
+  [data-theme="dark"] .tab-btn.active {
+    background-color: #2980b9;
+  }
+  

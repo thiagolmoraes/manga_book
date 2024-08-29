@@ -19,6 +19,12 @@ Sabe aquele hiato que você da nas suas leituras e depois não sabe onde parou? 
 ![Tela de configuração](assets/configs.png) <br>
 *Tela de configuração do MangaBook*
 
+![Tela Inicial](assets/search.png) <br>
+*Tela de configuração do MangaBook com Search*
+
+![Tags](assets/tags.png) <br>
+*Sistemas de Tags MangaBook com Search*
+
 ## Instalação
 
 1. Clone o repositório para sua máquina local:
@@ -38,8 +44,8 @@ Sabe aquele hiato que você da nas suas leituras e depois não sabe onde parou? 
 
 ## Atenção
 
-Os dados ainda estão sendo armazenados em Local Storage. Breve será implementado uma persistencia de dados! Até lá, não limpe o Local Storage...
- 
+Os dados ainda estão sendo armazenados em Local Storage. Breve será implementado uma persistencia de dados! Até lá, não limpe o Local Storage... 
+
 ## Contribuição
 
 Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests para melhorar o MangaBook.

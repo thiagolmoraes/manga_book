@@ -5,8 +5,15 @@ document.addEventListener('DOMContentLoaded', () => {
         displayNoMangasMessage();
     } else {
         storedMangas.forEach((manga, index) => {
-            addMangaToDOM(manga, index);
+            loadMangaList(manga, index);
+
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', filterMangas);
+
+            initTabs();
+            
         });
+
     }
     
     document.querySelector('.add-manga-btn').addEventListener('click', function(){
@@ -17,8 +24,47 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = 'config.html';
     });
 
+
+
 });
 
+
+function initTabs() {
+  const tabs = document.querySelectorAll('.tab-btn');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      filterMangasByTag(tab.dataset.tag);
+    });
+  });
+}
+
+function filterMangasByTag(tag) {
+  const mangaCards = document.querySelectorAll('.manga-card');
+  mangaCards.forEach(card => {
+    if (tag === 'all' || card.dataset.status === tag) {
+      card.style.display = 'flex';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+
+function filterMangas() {
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    const mangaCards = document.querySelectorAll('.manga-card');
+
+    mangaCards.forEach(card => {
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        if (title.includes(searchTerm)) {
+            card.style.display = 'flex';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
 
 function displayNoMangasMessage() {
     const mangaList = document.querySelector('.manga-list');
@@ -52,18 +98,23 @@ function formatStatus(status) {
             return 'Dropado';
         case 'hiato':
             return 'Hiato';
+        case 'cansei':
+            return 'Cansei';
         default:
             return '';
     }
 }
 
 
-function addMangaToDOM(manga, index) {
+function loadMangaList(manga, index) {
     const mangaList = document.querySelector('.manga-list');
 
     const mangaCard = document.createElement('div');
     mangaCard.classList.add('manga-card');
     mangaCard.setAttribute('data-id', index); 
+
+    mangaCard.setAttribute('data-status', manga.status);
+
 
     const tagHtml = manga.status ? `<span class="tags ${manga.status}">${formatStatus(manga.status)}</span>` : '';
 

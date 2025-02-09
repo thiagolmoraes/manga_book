@@ -28,18 +28,22 @@ function importLocalStorage(event) {
     const reader = new FileReader();
     reader.onload = function(e) {
         try {
+            console.log("Conteúdo do arquivo:", e.target.result); // Mostra o conteúdo bruto
             const data = JSON.parse(e.target.result);
+            console.log("JSON convertido:", data); // Mostra o JSON após conversão
 
-            if (Array.isArray(data) && data.length > 0) {
+            if (data && Array.isArray(data)) {
                 localStorage.setItem('mangas', JSON.stringify(data));
                 loadMangaList();
                 alert('Importação realizada com sucesso!');
             } else {
-                alert('O arquivo não contém dados válidos de mangás.');
+                alert('O arquivo JSON não contém uma lista válida de mangás.');
+                console.error("Formato inesperado:", data); // Mostra erro no console
             }
 
         } catch (err) {
             alert('Erro ao processar o arquivo. Certifique-se de que o arquivo é um JSON válido.');
+            console.error("Erro ao analisar JSON:", err); // Mostra erro no console
         }
     };
 

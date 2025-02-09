@@ -28,27 +28,28 @@ function importLocalStorage(event) {
     const reader = new FileReader();
     reader.onload = function(e) {
         try {
-            console.log("Conteúdo do arquivo:", e.target.result); // Mostra o conteúdo bruto
+            console.log("Conteúdo do arquivo:", e.target.result);
             const data = JSON.parse(e.target.result);
-            console.log("JSON convertido:", data); // Mostra o JSON após conversão
+            console.log("JSON convertido:", data);
 
-            if (data && Array.isArray(data)) {
-                localStorage.setItem('mangas', JSON.stringify(data));
-                loadMangaList();
+            if (data && Array.isArray(data.mangas) && data.mangas.length > 0) {
+                localStorage.setItem('mangas', JSON.stringify(data.mangas));
+                loadMangaList(); 
                 alert('Importação realizada com sucesso!');
             } else {
                 alert('O arquivo JSON não contém uma lista válida de mangás.');
-                console.error("Formato inesperado:", data); // Mostra erro no console
+                console.error("Formato inesperado:", data);
             }
 
         } catch (err) {
             alert('Erro ao processar o arquivo. Certifique-se de que o arquivo é um JSON válido.');
-            console.error("Erro ao analisar JSON:", err); // Mostra erro no console
+            console.error("Erro ao analisar JSON:", err);
         }
     };
 
     reader.readAsText(file);
 }
+
 
 function loadMangaList() {
     const mangaList = document.getElementById('mangaList');
